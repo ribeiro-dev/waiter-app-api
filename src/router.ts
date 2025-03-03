@@ -12,6 +12,7 @@ import { listOrders } from './app/useCases/orders/listOrders';
 import { createOrder } from './app/useCases/orders/createOrder';
 import { changeOrderStatus } from './app/useCases/orders/changeOrderStatus';
 import { cancelOrder } from './app/useCases/orders/cancelOrder';
+import { deleteProduct } from './app/useCases/products/deleteProduct';
 
 export const router = Router();
 
@@ -36,6 +37,7 @@ router.get('/categories/:categoryId/products', listProductsByCategory)
 // Products
 router.get('/products', listProducts)
 router.post('/products', upload.single('image'), createProduct) // pass upload as middleware
+router.delete('/products/:productId', deleteProduct)
 
 
 // Orders
